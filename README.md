@@ -26,9 +26,9 @@ PHP_FPM_VERSION=7.0
 ```
 
 ***HOME_DIRECTORY*** your website folder will create into this.  
-***NGINX_DIRECTORY*** your nginx configuration for website will create under sites-* folder wihtin this. 
-***NGINX_LOG_DIRECTORY*** your website log will create in this.
-***PHP_FPM_VERSION*** for php-fpm version
+***NGINX_DIRECTORY*** your nginx configuration for website will create under sites-* folder wihtin this.  
+***NGINX_LOG_DIRECTORY*** your website log will create in this.  
+***PHP_FPM_VERSION*** for php-fpm version  
 
 ### Created by
 [Apinan Woratrakun 📮 <apinan@iotech.co.th>](mailto:apinan@iotech.co.th)
