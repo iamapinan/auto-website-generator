@@ -62,3 +62,6 @@ ln -s $NGINX_DIRECTORY/sites-available/$INPUT_DOMAIN.conf $NGINX_DIRECTORY/sites
 
 # Create log directory
 mkdir -p $NGINX_LOG_DIRECTORY/$INPUT_DOMAIN
+
+# Reload Nginx
+nginx -s reload
