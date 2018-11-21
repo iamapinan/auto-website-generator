@@ -57,7 +57,6 @@ EOM
 
 # Create nginx config and symbolic link
 echo "$NGINX_CONF" > $NGINX_DIRECTORY/sites-available/$INPUT_DOMAIN.conf
-rm $NGINX_DIRECTORY/sites-available/$INPUT_DOMAIN.conf && \
 rm $NGINX_DIRECTORY/sites-enabled/$INPUT_DOMAIN.conf && \
 ln -s $NGINX_DIRECTORY/sites-available/$INPUT_DOMAIN.conf $NGINX_DIRECTORY/sites-enabled/$INPUT_DOMAIN.conf
 
