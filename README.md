@@ -32,10 +32,10 @@ HTTP_PORT=80
 ***NGINX_DIRECTORY*** your nginx configuration for website will create under sites-* folder wihtin this.  
 ***NGINX_LOG_DIRECTORY*** your website log will create in this.  
 ***PHP_FPM_VERSION*** for php-fpm version  
-***FILES_USER*** who's file owner 
-***FILES_GROUP*** file owner group
-***HTTP_PORT*** http port default is 80
- 
+***FILES_USER*** who's file owner  
+***FILES_GROUP*** file owner group  
+***HTTP_PORT*** http port default is 80  
+
 
 ### Created by
 [Apinan Woratrakun 📮 <apinan@iotech.co.th>](mailto:apinan@iotech.co.th)
