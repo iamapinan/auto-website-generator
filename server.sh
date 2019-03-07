@@ -11,6 +11,7 @@
 source .env
 INPUT_DOMAIN=$1
 DOMAIN_HOME=$HOME_DIRECTORY/$INPUT_DOMAIN/html
+COLOR="\033[01;32m"
 # Create home directory
 sudo mkdir -p $DOMAIN_HOME
 sudo chown -R $FILES_USER:$FILES_GROUP $HOME_DIRECTORY/$INPUT_DOMAIN
@@ -61,6 +62,6 @@ ln -s $NGINX_DIRECTORY/sites-available/$INPUT_DOMAIN.conf $NGINX_DIRECTORY/sites
 
 # Create log directory
 mkdir -p $NGINX_LOG_DIRECTORY/$INPUT_DOMAIN
-echo "Creating '$INPUT_DOMAIN' at $NGINX_LOG_DIRECTORY/$INPUT_DOMAIN\n"
-echo "Add '$INPUT_DOMAIN' successfully!\n"
+echo -e "$COLOR Creating '$INPUT_DOMAIN' at $NGINX_LOG_DIRECTORY/$INPUT_DOMAIN"
+echo -e "$COLOR Add '$INPUT_DOMAIN' successfully!"
 

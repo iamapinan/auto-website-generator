@@ -17,3 +17,17 @@ if [ $INPUT == 'server' ]; then
     # Reload nginx
     nginx -s reload
 fi
+
+if [ $INPUT == 'remove' ]; then
+    source .env
+    for domain in $(cat $FILE); do 
+        sudo rm -fr $NGINX_LOG_DIRECTORY/$domain
+        sudo rm -fr $HOME_DIRECTORY/$domain
+        sudo rm $NGINX_DIRECTORY/sites-available/$domain.conf
+        sudo rm $NGINX_DIRECTORY/sites-enabled/$domain.conf
+        echo "$domain deleted."
+    done
+
+    # Reload nginx
+    nginx -s reload
+fi
