@@ -23,12 +23,19 @@ HOME_DIRECTORY=/var/www
 NGINX_DIRECTORY=/etc/nginx
 NGINX_LOG_DIRECTORY=/var/log/nginx
 PHP_FPM_VERSION=7.0
+FILES_USER=www-data
+FILES_GROUP=www-data
+HTTP_PORT=80
 ```
 
 ***HOME_DIRECTORY*** your website folder will create into this.  
 ***NGINX_DIRECTORY*** your nginx configuration for website will create under sites-* folder wihtin this.  
 ***NGINX_LOG_DIRECTORY*** your website log will create in this.  
 ***PHP_FPM_VERSION*** for php-fpm version  
+***FILES_USER*** who's file owner 
+***FILES_GROUP*** file owner group
+***HTTP_PORT*** http port default is 80
+ 
 
 ### Created by
 [Apinan Woratrakun 📮 <apinan@iotech.co.th>](mailto:apinan@iotech.co.th)

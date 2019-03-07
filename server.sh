@@ -14,7 +14,7 @@ DOMAIN_HOME=$HOME_DIRECTORY/$INPUT_DOMAIN/html
 # Create home directory
 sudo mkdir -p $DOMAIN_HOME
 sudo chown -R $FILES_USER:$FILES_GROUP $HOME_DIRECTORY/$INPUT_DOMAIN
-TEMPLATE_HTML=$(curl -s https://git.iotech.co.th/iotech/iotech-landing/raw/master/index.html)
+TEMPLATE_HTML=$(cat template.html)
 CUSTOMER_HTML=$(cat <<EOM
     <li>Upload your web source to <span class="tag">$HOME_DIRECTORY/$INPUT_DOMAIN/html</span></li>
     <li>You can access this page from <span class="tag">$INPUT_DOMAIN, www.$INPUT_DOMAIN</span></li>
