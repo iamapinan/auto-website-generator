@@ -10,10 +10,10 @@
 
 source .env
 INPUT_DOMAIN=$1
-
+DOMAIN_HOME=$HOME_DIRECTORY/$INPUT_DOMAIN/html
 # Create home directory
-mkdir -p $HOME_DIRECTORY/$INPUT_DOMAIN/html
-
+sudo mkdir -p $DOMAIN_HOME
+sudo chown -R modesolution:modesolution $HOME_DIRECTORY/$INPUT_DOMAIN
 TEMPLATE_HTML=$(curl -s https://git.iotech.co.th/iotech/iotech-landing/raw/master/index.html)
 CUSTOMER_HTML=$(cat <<EOM
     <li>Upload your web source to <span class="tag">$HOME_DIRECTORY/$INPUT_DOMAIN/html</span></li>
@@ -57,8 +57,11 @@ EOM
 
 # Create nginx config and symbolic link
 echo "$NGINX_CONF" > $NGINX_DIRECTORY/sites-available/$INPUT_DOMAIN.conf
-rm $NGINX_DIRECTORY/sites-enabled/$INPUT_DOMAIN.conf && \
-ln -s $(pwd)/$NGINX_DIRECTORY/sites-available/$INPUT_DOMAIN.conf $NGINX_DIRECTORY/sites-enabled/$INPUT_DOMAIN.conf
+ln -s $NGINX_DIRECTORY/sites-available/$INPUT_DOMAIN.conf $NGINX_DIRECTORY/sites-enabled/$INPUT_DOMAIN.conf
 
 # Create log directory
 mkdir -p $NGINX_LOG_DIRECTORY/$INPUT_DOMAIN
+echo "Creating '$INPUT_DOMAIN' at $NGINX_LOG_DIRECTORY/$INPUT_DOMAIN\n"
+echo "Add '$INPUT_DOMAIN' successfully!\n"
+# Reload nginx
+nginx -s reload
