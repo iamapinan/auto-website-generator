@@ -57,11 +57,21 @@ EOM
 
 # Create nginx config and symbolic link
 echo "$NGINX_CONF" > $NGINX_DIRECTORY/sites-available/$INPUT_DOMAIN.conf
+<<<<<<< HEAD
+=======
+rm $NGINX_DIRECTORY/sites-enabled/$INPUT_DOMAIN.conf && \
+>>>>>>> 75199c833270c306291ea326a99b45563372f935
 ln -s $NGINX_DIRECTORY/sites-available/$INPUT_DOMAIN.conf $NGINX_DIRECTORY/sites-enabled/$INPUT_DOMAIN.conf
 
 # Create log directory
 mkdir -p $NGINX_LOG_DIRECTORY/$INPUT_DOMAIN
+<<<<<<< HEAD
 echo "Creating '$INPUT_DOMAIN' at $NGINX_LOG_DIRECTORY/$INPUT_DOMAIN\n"
 echo "Add '$INPUT_DOMAIN' successfully!\n"
 # Reload nginx
 nginx -s reload
+=======
+
+# Reload Nginx
+nginx -s reload
+>>>>>>> 75199c833270c306291ea326a99b45563372f935
