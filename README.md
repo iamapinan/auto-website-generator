@@ -1,4 +1,4 @@
-# Create Domain Statics
+# NGINX AUTO GENERATE
 
 ### This script will automatics create  
 - Domain mapping in nginx
