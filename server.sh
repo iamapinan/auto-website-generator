@@ -13,7 +13,7 @@ INPUT_DOMAIN=$1
 DOMAIN_HOME=$HOME_DIRECTORY/$INPUT_DOMAIN/html
 # Create home directory
 sudo mkdir -p $DOMAIN_HOME
-sudo chown -R modesolution:modesolution $HOME_DIRECTORY/$INPUT_DOMAIN
+sudo chown -R $FILES_USER:$FILES_GROUP $HOME_DIRECTORY/$INPUT_DOMAIN
 TEMPLATE_HTML=$(curl -s https://git.iotech.co.th/iotech/iotech-landing/raw/master/index.html)
 CUSTOMER_HTML=$(cat <<EOM
     <li>Upload your web source to <span class="tag">$HOME_DIRECTORY/$INPUT_DOMAIN/html</span></li>
@@ -26,7 +26,7 @@ echo "${TEMPLATE_HTML/<!--?-->/$CUSTOMER_HTML}" > $HOME_DIRECTORY/$INPUT_DOMAIN/
 NGINX_CONF=$(cat <<EOM
 # HTTP
 server {
-    listen 80;
+    listen $HTTP_PORT;
 
     # Server Root
     server_name $INPUT_DOMAIN www.$INPUT_DOMAIN;
@@ -57,21 +57,10 @@ EOM
 
 # Create nginx config and symbolic link
 echo "$NGINX_CONF" > $NGINX_DIRECTORY/sites-available/$INPUT_DOMAIN.conf
-<<<<<<< HEAD
-=======
-rm $NGINX_DIRECTORY/sites-enabled/$INPUT_DOMAIN.conf && \
->>>>>>> 75199c833270c306291ea326a99b45563372f935
 ln -s $NGINX_DIRECTORY/sites-available/$INPUT_DOMAIN.conf $NGINX_DIRECTORY/sites-enabled/$INPUT_DOMAIN.conf
 
 # Create log directory
 mkdir -p $NGINX_LOG_DIRECTORY/$INPUT_DOMAIN
-<<<<<<< HEAD
 echo "Creating '$INPUT_DOMAIN' at $NGINX_LOG_DIRECTORY/$INPUT_DOMAIN\n"
 echo "Add '$INPUT_DOMAIN' successfully!\n"
-# Reload nginx
-nginx -s reload
-=======
 
-# Reload Nginx
-nginx -s reload
->>>>>>> 75199c833270c306291ea326a99b45563372f935
